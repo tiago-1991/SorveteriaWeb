@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateFornecedorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateFornecedorLabel_cnpj}" for="cnpj" />
+                    <h:inputText id="cnpj" value="#{fornecedorController.selected.cnpj}" title="#{bundle.CreateFornecedorTitle_cnpj}" required="true" requiredMessage="#{bundle.CreateFornecedorRequiredMessage_cnpj}"/>
+                    <h:outputLabel value="#{bundle.CreateFornecedorLabel_razaoSocial}" for="razaoSocial" />
+                    <h:inputText id="razaoSocial" value="#{fornecedorController.selected.razaoSocial}" title="#{bundle.CreateFornecedorTitle_razaoSocial}" />
+                    <h:outputLabel value="#{bundle.CreateFornecedorLabel_telefone}" for="telefone" />
+                    <h:inputText id="telefone" value="#{fornecedorController.selected.telefone}" title="#{bundle.CreateFornecedorTitle_telefone}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{fornecedorController.create}" value="#{bundle.CreateFornecedorSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{fornecedorController.prepareList}" value="#{bundle.CreateFornecedorShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateFornecedorIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

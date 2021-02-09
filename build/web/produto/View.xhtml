@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewProdutoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewProdutoLabel_idproduto}"/>
+                    <h:outputText value="#{produtoController.selected.idproduto}" title="#{bundle.ViewProdutoTitle_idproduto}"/>
+                    <h:outputText value="#{bundle.ViewProdutoLabel_tipo}"/>
+                    <h:outputText value="#{produtoController.selected.tipo}" title="#{bundle.ViewProdutoTitle_tipo}"/>
+                    <h:outputText value="#{bundle.ViewProdutoLabel_preco}"/>
+                    <h:outputText value="#{produtoController.selected.preco}" title="#{bundle.ViewProdutoTitle_preco}"/>
+                    <h:outputText value="#{bundle.ViewProdutoLabel_cnpjFornecedor}"/>
+                    <h:outputText value="#{produtoController.selected.cnpjFornecedor}" title="#{bundle.ViewProdutoTitle_cnpjFornecedor}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{produtoController.destroyAndView}" value="#{bundle.ViewProdutoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewProdutoEditLink}"/>
+                <br />
+                <h:commandLink action="#{produtoController.prepareCreate}" value="#{bundle.ViewProdutoCreateLink}" />
+                <br />
+                <h:commandLink action="#{produtoController.prepareList}" value="#{bundle.ViewProdutoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewProdutoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

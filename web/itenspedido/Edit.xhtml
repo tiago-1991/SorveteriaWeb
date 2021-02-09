@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditItenspedidoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditItenspedidoLabel_quantidade}" for="quantidade" />
+                    <h:inputText id="quantidade" value="#{itenspedidoController.selected.quantidade}" title="#{bundle.EditItenspedidoTitle_quantidade}" />
+                    <h:outputLabel value="#{bundle.EditItenspedidoLabel_pedido}" for="pedido" />
+                    <h:selectOneMenu id="pedido" value="#{itenspedidoController.selected.pedido}" title="#{bundle.EditItenspedidoTitle_pedido}" required="true" requiredMessage="#{bundle.EditItenspedidoRequiredMessage_pedido}">
+                        <f:selectItems value="#{pedidoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditItenspedidoLabel_produto}" for="produto" />
+                    <h:selectOneMenu id="produto" value="#{itenspedidoController.selected.produto}" title="#{bundle.EditItenspedidoTitle_produto}" required="true" requiredMessage="#{bundle.EditItenspedidoRequiredMessage_produto}">
+                        <f:selectItems value="#{produtoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{itenspedidoController.update}" value="#{bundle.EditItenspedidoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditItenspedidoViewLink}"/>
+                <br />
+                <h:commandLink action="#{itenspedidoController.prepareList}" value="#{bundle.EditItenspedidoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditItenspedidoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

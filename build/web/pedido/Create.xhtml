@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePedidoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePedidoLabel_nropedido}" for="nropedido" />
+                    <h:inputText id="nropedido" value="#{pedidoController.selected.nropedido}" title="#{bundle.CreatePedidoTitle_nropedido}" required="true" requiredMessage="#{bundle.CreatePedidoRequiredMessage_nropedido}"/>
+                    <h:outputLabel value="#{bundle.CreatePedidoLabel_total}" for="total" />
+                    <h:inputText id="total" value="#{pedidoController.selected.total}" title="#{bundle.CreatePedidoTitle_total}" />
+                    <h:outputLabel value="#{bundle.CreatePedidoLabel_data}" for="data" />
+                    <h:inputText id="data" value="#{pedidoController.selected.data}" title="#{bundle.CreatePedidoTitle_data}" required="true" requiredMessage="#{bundle.CreatePedidoRequiredMessage_data}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePedidoLabel_idcliente}" for="idcliente" />
+                    <h:selectOneMenu id="idcliente" value="#{pedidoController.selected.idcliente}" title="#{bundle.CreatePedidoTitle_idcliente}" >
+                        <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pedidoController.create}" value="#{bundle.CreatePedidoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{pedidoController.prepareList}" value="#{bundle.CreatePedidoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePedidoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewItenspedidoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewItenspedidoLabel_quantidade}"/>
+                    <h:outputText value="#{itenspedidoController.selected.quantidade}" title="#{bundle.ViewItenspedidoTitle_quantidade}"/>
+                    <h:outputText value="#{bundle.ViewItenspedidoLabel_pedido}"/>
+                    <h:outputText value="#{itenspedidoController.selected.pedido}" title="#{bundle.ViewItenspedidoTitle_pedido}"/>
+                    <h:outputText value="#{bundle.ViewItenspedidoLabel_produto}"/>
+                    <h:outputText value="#{itenspedidoController.selected.produto}" title="#{bundle.ViewItenspedidoTitle_produto}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{itenspedidoController.destroyAndView}" value="#{bundle.ViewItenspedidoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewItenspedidoEditLink}"/>
+                <br />
+                <h:commandLink action="#{itenspedidoController.prepareCreate}" value="#{bundle.ViewItenspedidoCreateLink}" />
+                <br />
+                <h:commandLink action="#{itenspedidoController.prepareList}" value="#{bundle.ViewItenspedidoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewItenspedidoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListFornecedorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListFornecedorEmpty}" rendered="#{fornecedorController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{fornecedorController.items.rowCount > 0}">
+                    <h:outputText value="#{fornecedorController.pagination.pageFirstItem + 1}..#{fornecedorController.pagination.pageLastItem + 1}/#{fornecedorController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{fornecedorController.previous}" value="#{bundle.Previous} #{fornecedorController.pagination.pageSize}" rendered="#{fornecedorController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{fornecedorController.next}" value="#{bundle.Next} #{fornecedorController.pagination.pageSize}" rendered="#{fornecedorController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{fornecedorController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFornecedorTitle_cnpj}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cnpj}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFornecedorTitle_razaoSocial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.razaoSocial}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFornecedorTitle_telefone}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefone}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{fornecedorController.prepareView}" value="#{bundle.ListFornecedorViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{fornecedorController.prepareEdit}" value="#{bundle.ListFornecedorEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{fornecedorController.destroy}" value="#{bundle.ListFornecedorDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{fornecedorController.prepareCreate}" value="#{bundle.ListFornecedorCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListFornecedorIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

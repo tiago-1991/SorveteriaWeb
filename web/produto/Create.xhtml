@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateProdutoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateProdutoLabel_idproduto}" for="idproduto" />
+                    <h:inputText id="idproduto" value="#{produtoController.selected.idproduto}" title="#{bundle.CreateProdutoTitle_idproduto}" required="true" requiredMessage="#{bundle.CreateProdutoRequiredMessage_idproduto}"/>
+                    <h:outputLabel value="#{bundle.CreateProdutoLabel_tipo}" for="tipo" />
+                    <h:inputText id="tipo" value="#{produtoController.selected.tipo}" title="#{bundle.CreateProdutoTitle_tipo}" required="true" requiredMessage="#{bundle.CreateProdutoRequiredMessage_tipo}"/>
+                    <h:outputLabel value="#{bundle.CreateProdutoLabel_preco}" for="preco" />
+                    <h:inputText id="preco" value="#{produtoController.selected.preco}" title="#{bundle.CreateProdutoTitle_preco}" />
+                    <h:outputLabel value="#{bundle.CreateProdutoLabel_cnpjFornecedor}" for="cnpjFornecedor" />
+                    <h:selectOneMenu id="cnpjFornecedor" value="#{produtoController.selected.cnpjFornecedor}" title="#{bundle.CreateProdutoTitle_cnpjFornecedor}" >
+                        <f:selectItems value="#{fornecedorController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{produtoController.create}" value="#{bundle.CreateProdutoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{produtoController.prepareList}" value="#{bundle.CreateProdutoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateProdutoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
