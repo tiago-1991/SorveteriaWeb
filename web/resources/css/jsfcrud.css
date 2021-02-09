@@ -5,12 +5,19 @@ root {
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: #3a4f54;
-    background-color: #dfecf1;
+    background-color: #b8efff;
     font-size: small;
+    background-image: url("../img/icecream.png");
+    background-repeat: no-repeat;
+    background-position: top right;
+
+    
+    
 }
 
 a {
-    color: #e33b06;
+    color: #ff0000;
+    
 }
 
 table {

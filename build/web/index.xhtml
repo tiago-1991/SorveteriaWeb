@@ -3,25 +3,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Sorveteria</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h1 align="center">Bem Vindo ao Sistema SORVETERIA</h1>
+      
         <br />
-        <h:link outcome="welcomePrimefaces" value="Página de boas-vindas do Primefaces" />
+        <h:link outcome="/cliente/List" value="Mostrar Todos os Clientes"/>
         <br />
-        <h:link outcome="/cliente/List" value="Show All Cliente Items"/>
         <br />
-        <h:link outcome="/emailcliente/List" value="Show All Emailcliente Items"/>
+            
+        <h:link outcome="/emailcliente/List" value="Mostrar Todos os Emails de Clientes "/>
         <br />
-        <h:link outcome="/fornecedor/List" value="Show All Fornecedor Items"/>
         <br />
-        <h:link outcome="/itenspedido/List" value="Show All Itenspedido Items"/>
+        <h:link outcome="/fornecedor/List" value="Mostrar todos os Fornecedores"/>
         <br />
-        <h:link outcome="/pedido/List" value="Show All Pedido Items"/>
         <br />
-        <h:link outcome="/produto/List" value="Show All Produto Items"/>
+        <h:link outcome="/itenspedido/List" value="Mostrar todos os Itens de Pedidos"/>
+        <br />
+        <br />
+        <h:link outcome="/pedido/List" value="Mostrar todos os Pedidos"/>
+        <br />
+        <br />
+        <h:link outcome="/produto/List" value="Mostrar todos os Produtos"/>
     </h:body>
 
 

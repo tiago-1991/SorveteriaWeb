@@ -3,8 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Tiago/Documents/NetBeansProjects/Teste/web/template.xhtml</file>
+            <file>file:/C:/Users/Tiago/Documents/NetBeansProjects/Teste/src/java/teste/model/Cliente.java</file>
+            <file>file:/C:/Users/Tiago/Documents/NetBeansProjects/Teste/web/pedido/List.xhtml</file>
+            <file>file:/C:/Users/Tiago/Documents/NetBeansProjects/Teste/src/java/teste/control/ClienteJpaController.java</file>
+            <file>file:/C:/Users/Tiago/Documents/NetBeansProjects/Teste/src/java/Bundle.properties</file>
+            <file>file:/C:/Users/Tiago/Documents/NetBeansProjects/Teste/web/cliente/View.xhtml</file>
+            <file>file:/C:/Users/Tiago/Documents/NetBeansProjects/Teste/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/Tiago/Documents/NetBeansProjects/Teste/web/cliente/Edit.xhtml</file>
+            <file>file:/C:/Users/Tiago/Documents/NetBeansProjects/Teste/src/java/teste/view/ClienteController.java</file>
             <file>file:/C:/Users/Tiago/Documents/NetBeansProjects/Teste/web/index.xhtml</file>
+            <file>file:/C:/Users/Tiago/Documents/NetBeansProjects/Teste/web/cliente/Create.xhtml</file>
             <file>file:/C:/Users/Tiago/Documents/NetBeansProjects/Teste/web/welcomePrimefaces.xhtml</file>
+            <file>file:/C:/Users/Tiago/Documents/NetBeansProjects/Teste/web/cliente/List.xhtml</file>
+            <file>file:/C:/Users/Tiago/Documents/NetBeansProjects/Teste/src/java/teste/control/EmailclienteJpaController.java</file>
+            <file>file:/C:/Users/Tiago/Documents/NetBeansProjects/Teste/src/java/teste/model/Emailcliente.java</file>
+            <file>file:/C:/Users/Tiago/Documents/NetBeansProjects/Teste/web/resources/css/jsfcrud.css</file>
         </group>
     </open-files>
 </project-private>
